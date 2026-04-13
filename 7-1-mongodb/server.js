@@ -187,14 +187,6 @@
 // import mongoose
 import mongoose from "mongoose";
 
-// establish connection
-mongoose.connect("mongodb+srv://asmaalghamdi95_db_user:Asma@cluster0.0a5px4d.mongodb.net/labDB")
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.error("Connection error:", err);
-  });
 
 // define schema
 const studentSchema = new mongoose.Schema({
@@ -231,3 +223,19 @@ async function deleteStudent() {
    await Student.deleteOne({ name: "Sara" });
    console.log("✅ Deleted Sara");
 }
+
+
+// establish connection
+mongoose.connect("mongodb+srv://asmaalghamdi95_db_user:Asma@cluster0.0a5px4d.mongodb.net/labDB")
+   .then(async () => {
+      console.log("✅ Connected to MongoDB!");
+
+      await createStudents();  // TODO-3
+      await readStudents();    // TODO-4
+      await updateStudent();   // TODO-5
+      await readStudents();    // Read again to see update
+      await deleteStudent();   // TODO-6
+      await readStudents();    // Read again to confirm deletion
+
+   })
+   .catch(err => console.log("Connection error:", err));
