@@ -197,7 +197,12 @@ mongoose.connect("mongodb+srv://asmaalghamdi95_db_user:Asma@cluster0.0a5px4d.mon
   });
 
 // define schema
-
+const studentSchema = new mongoose.Schema({
+   name: String,
+   age: Number,
+   major: String
+});
+const Student = mongoose.model("Student", studentSchema);
 
 // create document
 
