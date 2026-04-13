@@ -83,7 +83,7 @@
  *      - 9.2: Should show only Ali, age = 22.
  *    Note: Take a single screen shot of the Todo 9.1 & 9.2 and save it in Mongo-Screen-shots/TODO-9
  * ================================================================================================================
- *                                                    Mongoose
+ *                                                       
  * ================================================================================================================
  * ===================================================================
     LAB SETUP INSTRUCTIONS
@@ -185,9 +185,16 @@
  */
 
 // import mongoose
+import mongoose from "mongoose";
 
 // establish connection
-
+mongoose.connect("mongodb+srv://asmaalghamdi95_db_user:<YoLFrYZDSoPNozbq>@cluster0.rygtjue.mongodb.net/TestDB")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Connection error:", err);
+  });
 
 // define schema
 
